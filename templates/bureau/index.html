@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>News Agency Hub</h1>
+    <p>Welcome to the premier hub for news and information.</p>
+    <h2>Explore the Latest News</h2>
+    <p>Our agency brings you the most up-to-date and comprehensive news coverage. Stay informed with the latest headlines and breaking stories.</p>
+    <h2>Discover Diverse Topics</h2>
+    <p>Explore a wide range of topics from politics and technology to entertainment and sports. Our agency covers it all to keep you well-informed.</p>
+    <h2>Meet Our Journalists</h2>
+    <p>Our team of dedicated journalists and reporters is committed to delivering accurate and unbiased news. Get to know our talented redactors who bring stories to life.</p>
+    <h2>Hub Statistics</h2>
+    <ul>
+        <li><strong>Topics Covered:</strong> {{ num_topics }}</li>
+        <li><strong>Journalists:</strong> {{ num_redactors }}</li>
+    </ul>
+
+    <p>You have spent {{ time_spent_minutes }} minute{{ time_spent_minutes|pluralize }} and {{ time_spent_seconds }} second{{ time_spent_seconds|pluralize }} on this page.</p>
+
+
+    <script>
+        const startTime = new Date().getTime();
+        window.addEventListener('beforeunload', function () {
+            const endTime = new Date().getTime();
+            const timeSpent = Math.round((endTime - startTime) / 1000);
+            document.getElementById('time-on-page').innerText = timeSpent + ' seconds';
+        });
+    </script>
+{% endblock %}

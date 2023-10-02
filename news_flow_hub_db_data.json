@@ -1,0 +1,72 @@
+[
+  {
+    "model": "bureau.topic",
+    "pk": 1,
+    "fields": {
+      "name": "Politics"
+    }
+  },
+  {
+    "model": "bureau.topic",
+    "pk": 2,
+    "fields": {
+      "name": "Technology"
+    }
+  },
+  {
+    "model": "bureau.topic",
+    "pk": 3,
+    "fields": {
+      "name": "Entertainment"
+    }
+  },
+  {
+    "model": "bureau.redactor",
+    "pk": 1,
+    "fields": {
+      "username": "john_doe",
+      "years_of_experience": 5
+    }
+  },
+  {
+    "model": "bureau.redactor",
+    "pk": 2,
+    "fields": {
+      "username": "jane_smith",
+      "years_of_experience": 8
+    }
+  },
+  {
+    "model": "bureau.newspaper",
+    "pk": 1,
+    "fields": {
+      "title": "Breaking News",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "published_year": "2023-01-15",
+      "topic": 1,
+      "publishers": [1, 2]
+    }
+  },
+  {
+    "model": "bureau.newspaper",
+    "pk": 2,
+    "fields": {
+      "title": "Tech Innovations",
+      "content": "Vivamus suscipit metus eget odio vestibulum, et porttitor lectus tempus.",
+      "published_year": "2023-02-20",
+      "topic": 2,
+      "publishers": [1]
+    }
+  },
+  {
+    "model": "bureau.newspaper",
+    "pk": 3,
+    "fields": {
+      "title": "Movie Mania",
+      "content": "Nulla facilisi. Duis vitae tortor sed elit tincidunt dictum vel ut augue.",
+      "published_year": "2023-03-10",
+      "topic": 3,
+      "publishers": [2]
+    }
+  }
+]
