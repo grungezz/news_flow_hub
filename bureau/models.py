@@ -11,6 +11,21 @@ class Topic(models.Model):
 
 class Redactor(AbstractUser):
     years_of_experience = models.IntegerField()
+    # Added related_name to eliminate name conflicts
+    groups = models.ManyToManyField(
+        'auth.Group',
+        related_name='redactor_groups',
+        blank=True,
+        verbose_name='groups',
+        help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.',
+    )
+    user_permissions = models.ManyToManyField(
+        'auth.Permission',
+        related_name='redactor_user_permissions',
+        blank=True,
+        verbose_name='user permissions',
+        help_text='Specific permissions for this user.',
+    )
 
 
 class NewsPaper(models.Model):

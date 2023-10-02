@@ -8,7 +8,7 @@ class TopicAdmin(admin.ModelAdmin):
 
 
 @admin.register(Redactor)
-class EditorAdmin(admin.ModelAdmin):
+class RedactorAdmin(admin.ModelAdmin):
     list_display = ('username', 'years_of_experience',)
 
 
