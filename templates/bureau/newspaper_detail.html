@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <div style="text-align: center;">
+  <div style="max-width: 800px; margin: 0 auto; text-align: left; padding: 0 20px;">
     <h1>
       {{ newspaper.title }}
       {% if user.is_authenticated %}
+        <br>
         <a href="{% url 'bureau:newspaper-delete' pk=newspaper.id %}" class="btn btn-danger link-to-page">
           Delete
         </a>
@@ -43,3 +44,4 @@
     </ul>
   </div>
 {% endblock %}
+перепиши так чтобы

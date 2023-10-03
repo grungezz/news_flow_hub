@@ -1,13 +1,14 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils import timezone
 from django.views import generic
-from django.contrib.auth.mixins import LoginRequiredMixin
 
+from .forms import RedactorCreationForm, RedactorExperienceUpdateForm, NewspaperForm, RedactorUpdateDataForm, \
+    NewspaperSearchForm
 from .models import Redactor, Newspaper, Topic
-from .forms import RedactorCreationForm, RedactorExperienceUpdateForm, NewspaperForm, RedactorUpdateDataForm
 
 
 def index(request):
@@ -42,7 +43,7 @@ def index(request):
 class TopicListView(generic.ListView):
     model = Topic
     context_object_name = "topic_list"
-    paginate_by = 5
+    paginate_by = 8
 
 
 class TopicCreateView(LoginRequiredMixin, generic.CreateView):
@@ -66,6 +67,21 @@ class NewspaperListView(generic.ListView):
     model = Newspaper
     paginate_by = 10
     queryset = Newspaper.objects.all().select_related("topic").order_by('-published_year')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super(NewspaperListView, self).get_context_data(**kwargs)
+        title = self.request.GET.get("title", "")
+        context["search_form"] = NewspaperSearchForm(initial={"title": title})
+        return context
+
+    def get_queryset(self):
+        form = NewspaperSearchForm(self.request.GET)
+
+        if form.is_valid():
+            return self.queryset.filter(
+                title__icontains=form.cleaned_data["title"]
+            )
+        return self.queryset
 
 
 class NewspaperDetailView(generic.DetailView):
@@ -134,3 +150,4 @@ class RedactorUpdateDataView(LoginRequiredMixin, generic.UpdateView):
 
     def get_success_url(self):
         return reverse_lazy("bureau:redactor-list")
+

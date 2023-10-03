@@ -62,3 +62,19 @@ def validate_years_of_experience(years_of_experience):
         raise ValidationError("Years of experience should contain only numbers")
 
     return years_of_experience
+
+
+class NewspaperSearchForm(forms.Form):
+    title = forms.CharField(
+        max_length=255,
+        required=False,
+        label="",
+        widget=forms.TextInput(
+            attrs={
+                "placeholder": "Search by title",
+                "class": "form-control me-3",
+                "type": "search",
+                "aria-label": "Search"
+            }
+        ),
+    )
