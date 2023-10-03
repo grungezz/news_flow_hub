@@ -1,21 +1,27 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>News Flow Hub</h1>
-    <p>Welcome to the premier hub for news and information.</p>
-    <h2>Explore the Latest News</h2>
-    <p>Our agency brings you the most up-to-date and comprehensive news coverage. Stay informed with the latest headlines and breaking stories.</p>
-    <h2>Discover Diverse Topics</h2>
-    <p>Explore a wide range of topics from politics and technology to entertainment and sports. Our agency covers it all to keep you well-informed.</p>
-    <h2>Meet Our Redactors</h2>
-    <p>Our team of dedicated redactors and reporters is committed to delivering accurate and unbiased news. Get to know our talented redactors who bring stories to life.</p>
-    <h2>Hub Statistics</h2>
-    <ul>
-        <li><strong>Topics Covered:</strong> {{ num_topics }}</li>
-        <li><strong>Redactors:</strong> {{ num_redactors }}</li>
-    </ul>
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to News Flow Hub!</h1>
+        <p class="lead">Your Source for Quality News and Stories</p>
+    </div>
 
-    <p>You have spent {{ time_spent_minutes }} minute{{ time_spent_minutes|pluralize }} and {{ time_spent_seconds }} second{{ time_spent_seconds|pluralize }} on this page.</p>
-
-
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2 class="mb-4">About Us</h2>
+                <p>We are dedicated to bringing you the latest and most reliable news from around the world. Our team of talented redactors works hard to ensure that you are well-informed and entertained.</p>
+                <p>At News Flow Hub, we invite accredited redactors to join our dynamic team. As a part of our community, redactors can contribute news articles that reach a wide audience. Readers enjoy the privilege of accessing the most important and interesting news stories before anyone else.</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="mb-4">Statistics</h2>
+                <ul class="list-unstyled">
+                    <li><strong>Newspapers:</strong> {{ num_newspapers }}</li>
+                    <li><strong>Redactors:</strong> {{ num_redactors }}</li>
+                    <li><strong>Topics:</strong> {{ num_topics }}</li>
+                </ul>
+                <p>You have spent {{ time_spent_minutes }} minute{{ time_spent_minutes|pluralize }} and {{ time_spent_seconds }} second{{ time_spent_seconds|pluralize }} on this page.</p>
+            </div>
+        </div>
+    </div>
 {% endblock %}
