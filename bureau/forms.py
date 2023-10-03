@@ -35,20 +35,6 @@ class RedactorExperienceUpdateForm(forms.ModelForm):
         model = Redactor
         fields = ["years_of_experience"]
 
-    def clean_years_of_experience(self):
-        return validate_years_of_experience(self.cleaned_data["years_of_experience"])
-
-
-def validate_years_of_experience(years_of_experience):
-    try:
-        years_of_experience = int(years_of_experience)
-        if not 0 <= years_of_experience <= 80:
-            raise ValidationError("Please enter a valid number between 0 and 80")
-    except ValueError:
-        raise ValidationError("Years of experience should contain only numbers")
-
-    return years_of_experience
-
 
 class RedactorUpdateDataForm(forms.ModelForm):
     class Meta:
@@ -62,3 +48,17 @@ class RedactorUpdateDataForm(forms.ModelForm):
         'email': forms.EmailInput(attrs={'class': 'form-control'}),
         'years_of_experience': forms.NumberInput(attrs={'class': 'form-control'}),
     }
+
+    def clean_years_of_experience(self):
+        return validate_years_of_experience(self.cleaned_data["years_of_experience"])
+
+
+def validate_years_of_experience(years_of_experience):
+    try:
+        years_of_experience = int(years_of_experience)
+        if not 0 <= years_of_experience <= 80:
+            raise ValidationError("Please enter a valid number between 0 and 80")
+    except ValueError:
+        raise ValidationError("Years of experience should contain only numbers")
+
+    return years_of_experience
