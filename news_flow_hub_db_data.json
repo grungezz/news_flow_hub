@@ -1,72 +1,172 @@
 [
   {
     "model": "bureau.topic",
-    "pk": 1,
+    "pk": 4,
     "fields": {
-      "name": "Politics"
+      "name": "Science"
     }
   },
   {
     "model": "bureau.topic",
-    "pk": 2,
+    "pk": 5,
     "fields": {
-      "name": "Technology"
-    }
-  },
-  {
-    "model": "bureau.topic",
-    "pk": 3,
-    "fields": {
-      "name": "Entertainment"
+      "name": "Sports"
     }
   },
   {
     "model": "bureau.redactor",
-    "pk": 1,
+    "pk": 3,
     "fields": {
-      "username": "john_doe",
-      "years_of_experience": 5
+      "username": "mark_jones",
+      "years_of_experience": 3
     }
   },
   {
     "model": "bureau.redactor",
-    "pk": 2,
+    "pk": 4,
     "fields": {
-      "username": "jane_smith",
-      "years_of_experience": 8
+      "username": "emily_white",
+      "years_of_experience": 6
+    }
+  },
+  {
+    "model": "bureau.redactor",
+    "pk": 5,
+    "fields": {
+      "username": "chris_miller",
+      "years_of_experience": 10
     }
   },
   {
     "model": "bureau.newspaper",
-    "pk": 1,
+    "pk": 4,
     "fields": {
-      "title": "Breaking News",
-      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-      "published_year": "2023-01-15",
-      "topic": 1,
-      "publishers": [1, 2]
+      "title": "Space Exploration",
+      "content": "Fusce ac libero non velit euismod malesuada ut et ex.",
+      "published_year": "2023-04-05",
+      "topic": 4,
+      "publishers": [3, 4]
     }
   },
   {
     "model": "bureau.newspaper",
-    "pk": 2,
+    "pk": 5,
     "fields": {
-      "title": "Tech Innovations",
-      "content": "Vivamus suscipit metus eget odio vestibulum, et porttitor lectus tempus.",
-      "published_year": "2023-02-20",
-      "topic": 2,
-      "publishers": [1]
+      "title": "World Cup Fever",
+      "content": "Sed auctor velit ut turpis pellentesque tincidunt.",
+      "published_year": "2023-05-15",
+      "topic": 5,
+      "publishers": [3, 5]
     }
   },
   {
     "model": "bureau.newspaper",
-    "pk": 3,
+    "pk": 6,
     "fields": {
-      "title": "Movie Mania",
-      "content": "Nulla facilisi. Duis vitae tortor sed elit tincidunt dictum vel ut augue.",
-      "published_year": "2023-03-10",
+      "title": "Art and Culture Showcase",
+      "content": "Vestibulum dignissim ligula nec libero placerat, non rhoncus justo auctor.",
+      "published_year": "2023-06-20",
       "topic": 3,
-      "publishers": [2]
+      "publishers": [4]
+    }
+  },
+  {
+    "model": "bureau.newspaper",
+    "pk": 7,
+    "fields": {
+      "title": "Medical Breakthroughs",
+      "content": "Curabitur sit amet nunc vel elit accumsan pellentesque.",
+      "published_year": "2023-07-01",
+      "topic": 4,
+      "publishers": [5]
+    }
+  },
+  {
+    "model": "bureau.newspaper",
+    "pk": 8,
+    "fields": {
+      "title": "Oscar-winning Films",
+      "content": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.",
+      "published_year": "2023-08-12",
+      "topic": 3,
+      "publishers": [3, 4]
+    }
+  },
+  {
+    "model": "bureau.newspaper",
+    "pk": 9,
+    "fields": {
+      "title": "Advancements in Robotics",
+      "content": "Integer et orci quis augue dapibus hendrerit.",
+      "published_year": "2023-09-25",
+      "topic": 2,
+      "publishers": [5]
+    }
+  },
+  {
+    "model": "bureau.newspaper",
+    "pk": 10,
+    "fields": {
+      "title": "Formula 1 Championship",
+      "content": "Vivamus vel quam et justo accumsan feugiat eu ut libero.",
+      "published_year": "2023-10-10",
+      "topic": 5,
+      "publishers": [3, 5]
+    }
+  },
+  {
+    "model": "bureau.newspaper",
+    "pk": 11,
+    "fields": {
+      "title": "Culinary Delights",
+      "content": "Nullam eu purus nec ligula fermentum auctor eu ac mi.",
+      "published_year": "2023-11-18",
+      "topic": 3,
+      "publishers": [4]
+    }
+  },
+  {
+    "model": "bureau.newspaper",
+    "pk": 12,
+    "fields": {
+      "title": "Environmental Conservation",
+      "content": "Maecenas tincidunt justo eu elit varius, vitae malesuada nisl cursus.",
+      "published_year": "2023-12-05",
+      "topic": 4,
+      "publishers": [3, 5]
+    }
+  },
+  {
+    "model": "bureau.newspaper",
+    "pk": 13,
+    "fields": {
+      "title": "Latest Smartphone Trends",
+      "content": "Quisque euismod felis eget feugiat facilisis.",
+      "published_year": "2024-01-08",
+      "topic": 2,
+      "publishers": [4]
+    }
+  },
+  {
+    "model": "bureau.newspaper",
+    "pk": 14,
+    "fields": {
+      "title": "Famous Art Exhibitions",
+      "content": "Suspendisse euismod neque eget elit euismod, ut venenatis mauris mattis.",
+      "published_year": "2024-02-14",
+      "topic": 3,
+      "publishers": [3, 5]
+    }
+  },
+  {
+    "model": "bureau.newspaper",
+    "pk": 15,
+    "fields": {
+      "title": "Sportsmanship in Olympics",
+      "content": "Phasellus aliquet libero a nisi volutpat vestibulum.",
+      "published_year": "2024-03-22",
+      "topic": 5,
+      "publishers": [4]
     }
   }
 ]

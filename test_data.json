@@ -1,0 +1,67 @@
+[
+  {
+    "model": "bureau.topic",
+    "pk": 1,
+    "fields": {
+      "name": "Politics"
+    }
+  },
+  {
+    "model": "bureau.topic",
+    "pk": 2,
+    "fields": {
+      "name": "Business"
+    }
+  },
+  {
+    "model": "bureau.topic",
+    "pk": 3,
+    "fields": {
+      "name": "Technology"
+    }
+  },
+  {
+    "model": "bureau.redactor",
+    "pk": 1,
+    "fields": {
+      "username": "john_doe",
+      "password": "hashed_password",
+      "first_name": "John",
+      "last_name": "Doe",
+      "years_of_experience": 5
+    }
+  },
+  {
+    "model": "bureau.redactor",
+    "pk": 2,
+    "fields": {
+      "username": "jane_smith",
+      "password": "hashed_password",
+      "first_name": "Jane",
+      "last_name": "Smith",
+      "years_of_experience": 8
+    }
+  },
+  {
+    "model": "bureau.newspaper",
+    "pk": 1,
+    "fields": {
+      "title": "Breaking News: Political Event",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "published_year": "2023-10-01",
+      "topic": 1,
+      "redactors": [1]
+    }
+  },
+  {
+    "model": "bureau.newspaper",
+    "pk": 2,
+    "fields": {
+      "title": "Economy Update",
+      "content": "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "published_year": "2023-10-02",
+      "topic": 1,
+      "redactors": [1, 2]
+    }
+  }
+]

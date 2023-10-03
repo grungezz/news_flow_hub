@@ -1,5 +1,8 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.utils import timezone
+from django.views.generic import CreateView, ListView
 
 from bureau.models import Redactor, Topic
 
@@ -28,3 +31,17 @@ def index(request):
     }
 
     return render(request, 'bureau/index.html', context=context)
+
+
+class TopicCreateView(CreateView):
+    model = Topic
+    fields = ['name']
+    template_name = 'bureau/topic_form.html'
+    success_url = reverse_lazy('bureau:topic-list')
+
+
+class TopicListView(ListView):
+    model = Topic
+    template_name = 'bureau/topic_list.html'
+    paginate_by = 5
+    context_object_name = 'topic_list'

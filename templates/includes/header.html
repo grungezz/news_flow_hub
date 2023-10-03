@@ -1,0 +1,18 @@
+<div id="header">
+    <div id="logo">
+        <a href="{% url 'bureau:index' %}">News Flow Hub</a>
+    </div>
+
+    <div id="navigation">
+       <a href="{% url 'bureau:index' %}">Home</a>
+      | Topics | Redactors
+    </div>
+
+    <div id="user-info">
+        {% if user.is_authenticated %}
+            Welcome, {{ user.username }}! <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            Login | Sign up
+        {% endif %}
+    </div>
+</div>
