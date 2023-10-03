@@ -1,9 +1,10 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.urls import reverse
 
 
 class Topic(models.Model):
-    name = models.CharField(max_length=255)
+    name = models.CharField(max_length=255, unique=True)
 
     class Meta:
         ordering = ["name"]
@@ -20,31 +21,18 @@ class Redactor(AbstractUser):
         verbose_name_plural = "redactors"
 
     def __str__(self):
-        return self.username
+        return f"{self.username} ({self.first_name} {self.last_name})"
 
-    # Added related_name to eliminate name conflicts
-    groups = models.ManyToManyField(
-        'auth.Group',
-        related_name='redactor_groups',
-        blank=True,
-        verbose_name='groups',
-        help_text='The groups this user belongs to. A user will get all permissions granted to each of their groups.',
-    )
-    user_permissions = models.ManyToManyField(
-        'auth.Permission',
-        related_name='redactor_user_permissions',
-        blank=True,
-        verbose_name='user permissions',
-        help_text='Specific permissions for this user.',
-    )
+    def get_absolute_url(self):
+        return reverse("bureau:redactor-detail", kwargs={"pk": self.pk})
 
 
-class NewsPaper(models.Model):
+class Newspaper(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
     published_year = models.DateField()
-    topic = models.ForeignKey(Topic, on_delete=models.CASCADE, related_name="newspapers")
-    publishers = models.ManyToManyField(Redactor)
+    topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    redactors = models.ManyToManyField(Redactor, related_name="newspapers")
 
     def __str__(self):
         return self.title

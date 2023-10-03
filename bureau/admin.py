@@ -1,18 +1,34 @@
 from django.contrib import admin
-from .models import Topic, Redactor, NewsPaper
-
-
-@admin.register(Topic)
-class TopicAdmin(admin.ModelAdmin):
-    pass
+from django.contrib.auth.admin import UserAdmin
+from .models import Redactor, Newspaper, Topic
 
 
 @admin.register(Redactor)
-class RedactorAdmin(admin.ModelAdmin):
-    list_display = ('username', 'years_of_experience')
+class RedactorAdmin(UserAdmin):
+    list_display = UserAdmin.list_display + ("years_of_experience",)
+    fieldsets = UserAdmin.fieldsets + (
+        (("Additional info", {"fields": ("years_of_experience",)}),)
+    )
+    add_fieldsets = UserAdmin.add_fieldsets + (
+        (
+            (
+                "Additional info",
+                {
+                    "fields": (
+                        "first_name",
+                        "last_name",
+                        "years_of_experience",
+                    )
+                },
+            ),
+        )
+    )
 
 
-@admin.register(NewsPaper)
-class NewsPaperAdmin(admin.ModelAdmin):
-    list_display = ('title', 'published_year', 'topic')
-    filter_horizontal = ('publishers',)
+@admin.register(Newspaper)
+class NewspaperAdmin(admin.ModelAdmin):
+    search_fields = ("title",)
+    list_filter = ("topic",)
+
+
+admin.site.register(Topic)
