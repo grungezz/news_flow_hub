@@ -1,33 +1,35 @@
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-}
-
-#content {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-h1 {
-    color: #0066cc;
-}
-
-
-#header {
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
     background-color: #f0f0f0;
+    padding: 10px;
 }
 
-#navigation {
-    text-align: center;
-    flex-grow: 1;
+#nav-center {
+  display: flex;
+  align-items: center;
 }
 
-#user-info {
-    text-align: right;
+.nav-separator {
+  margin: 0 10px; /* Adjust the margin as needed for spacing */
+  color: #555;    /* Adjust the color as needed */
+}
+
+#nav a {
+    text-decoration: none;
+    color: #333; /* цвет текста */
+}
+
+#nav div {
+    display: flex;
+}
+
+#nav span {
+    margin-right: 10px;
+}
+
+.gray-btn {
+  background-color: rgb(128, 128, 128);
+  color: white;
 }
