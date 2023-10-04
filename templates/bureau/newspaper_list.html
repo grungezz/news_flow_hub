@@ -2,12 +2,12 @@
 
 {% block content %}
   <div class="container" style="max-width: 800px; margin: 0 auto;">
-    <div class="d-flex justify-content-start align-items-center">
-      <h1 class="mr-3">Newspaper list</h1>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1 class="mb-0">Newspaper List</h1>
 
       {% if user.is_authenticated %}
-        <a href="{% url 'bureau:newspaper-create' %}" class="btn btn-primary link-to-page mr-3">
-          Create
+        <a href="{% url 'bureau:newspaper-create' %}" class="btn btn-primary link-to-page">
+          Create Newspaper
         </a>
       {% endif %}
 
@@ -18,31 +18,66 @@
     </div>
 
     {% if newspaper_list %}
-      <ul>
+      <ul class="list-group">
         {% for newspaper in newspaper_list %}
-          <li>
-            {{ newspaper.published_year|date:"Y-m-d" }} -
-            <a href="{% url "bureau:newspaper-detail" pk=newspaper.id %}">{{ newspaper.title }}</a>
-            ({{ newspaper.topic.name }})
+          <li class="list-group-item">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <span class="font-weight-bold">
+                  {{ newspaper.published_year|date:"Y-m-d" }}
+                </span> -
+                <a href="{% url "bureau:newspaper-detail" pk=newspaper.id %}">
+                  {{ newspaper.title }}
+                </a>
+                ({{ newspaper.topic.name }})
+              </div>
+              <div>
+                <!-- Add any additional information or actions here -->
+              </div>
+            </div>
           </li>
         {% endfor %}
       </ul>
 
-      <div class="pagination">
-        <span class="step-links">
-          {% if newspaper_list.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ newspaper_list.previous_page_number }}">previous</a>
-          {% endif %}
+      <div class="mt-4">
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+            {% if newspaper_list.has_previous %}
+              <li class="page-item">
+                <a class="page-link" href="?page=1" aria-label="First">
+                  &laquo;&laquo;
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="?page={{ newspaper_list.previous_page_number }}" aria-label="Previous">
+                  &laquo;
+                </a>
+              </li>
+            {% endif %}
 
-          {% if newspaper_list.has_next %}
-            <a href="?page={{ newspaper_list.next_page_number }}">next</a>
-            <a href="?page={{ newspaper_list.paginator.num_pages }}">last &raquo;</a>
-          {% endif %}
-        </span>
+            {% for i in newspaper_list.paginator.page_range %}
+              <li class="page-item {% if i == newspaper_list.number %}active{% endif %}">
+                <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+              </li>
+            {% endfor %}
+
+            {% if newspaper_list.has_next %}
+              <li class="page-item">
+                <a class="page-link" href="?page={{ newspaper_list.next_page_number }}" aria-label="Next">
+                  &raquo;
+                </a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="?page={{ newspaper_list.paginator.num_pages }}" aria-label="Last">
+                  &raquo;&raquo;
+                </a>
+              </li>
+            {% endif %}
+          </ul>
+        </nav>
       </div>
     {% else %}
-      <p>There are no newspapers in bureau</p>
+      <p class="mt-4">There are no newspapers in the bureau.</p>
     {% endif %}
   </div>
 {% endblock %}

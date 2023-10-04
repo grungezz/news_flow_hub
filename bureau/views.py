@@ -70,7 +70,7 @@ class TopicDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class NewspaperListView(generic.ListView):
     model = Newspaper
-    paginate_by = 10
+    paginate_by = 7
     queryset = (
         Newspaper.
         objects.all().
