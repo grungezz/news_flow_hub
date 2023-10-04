@@ -160,3 +160,15 @@ class RedactorUpdateDataView(LoginRequiredMixin, generic.UpdateView):
 
     def get_success_url(self):
         return reverse_lazy("bureau:redactor-list")
+
+
+def careers(request):
+    return render(request, 'bureau/careers.html')
+
+
+def contact_us(request):
+    return render(request, 'bureau/contact_us.html')
+
+
+def privacy_policy(request):
+    return render(request, 'bureau/privacy_policy.html')

@@ -18,6 +18,9 @@ from .views import (
     TopicDeleteView,
     toggle_assign_to_newspaper,
     RedactorUpdateDataView,
+    careers,
+    contact_us,
+    privacy_policy,
 )
 
 urlpatterns = [
@@ -94,6 +97,9 @@ urlpatterns = [
         RedactorUpdateDataView.as_view(),
         name="redactor-update-data",
     ),
+    path('careers/', careers, name='careers'),
+    path('contact_us/', contact_us, name='contact-us'),
+    path('privacy_policy/', privacy_policy, name='privacy-policy'),
 ]
 
 app_name = "bureau"
