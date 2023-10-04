@@ -16,7 +16,8 @@ from .views import (
     TopicCreateView,
     TopicUpdateView,
     TopicDeleteView,
-    toggle_assign_to_newspaper, RedactorUpdateDataView,
+    toggle_assign_to_newspaper,
+    RedactorUpdateDataView,
 )
 
 urlpatterns = [
@@ -42,10 +43,26 @@ urlpatterns = [
         name="topic-delete",
     ),
     path("newspapers/", NewspaperListView.as_view(), name="newspaper-list"),
-    path("newspapers/<int:pk>/", NewspaperDetailView.as_view(), name="newspaper-detail"),
-    path("newspapers/create/", NewspaperCreateView.as_view(), name="newspaper-create"),
-    path("newspapers/<int:pk>/update/", NewspaperUpdateView.as_view(), name="newspaper-update"),
-    path("newspapers/<int:pk>/delete/", NewspaperDeleteView.as_view(), name="newspaper-delete"),
+    path(
+        "newspapers/<int:pk>/",
+        NewspaperDetailView.as_view(),
+        name="newspaper-detail"
+    ),
+    path(
+        "newspapers/create/",
+        NewspaperCreateView.as_view(),
+        name="newspaper-create"
+    ),
+    path(
+        "newspapers/<int:pk>/update/",
+        NewspaperUpdateView.as_view(),
+        name="newspaper-update",
+    ),
+    path(
+        "newspapers/<int:pk>/delete/",
+        NewspaperDeleteView.as_view(),
+        name="newspaper-delete",
+    ),
     path(
         "newspapers/<int:pk>/toggle-assign/",
         toggle_assign_to_newspaper,
@@ -53,9 +70,15 @@ urlpatterns = [
     ),
     path("redactors/", RedactorListView.as_view(), name="redactor-list"),
     path(
-        "redactors/<int:pk>/", RedactorDetailView.as_view(), name="redactor-detail"
+        "redactors/<int:pk>/",
+        RedactorDetailView.as_view(),
+        name="redactor-detail"
     ),
-    path("redactors/create/", RedactorCreateView.as_view(), name="redactor-create"),
+    path(
+        "redactors/create/",
+        RedactorCreateView.as_view(),
+        name="redactor-create"
+    ),
     path(
         "redactors/<int:pk>/update/",
         RedactorExperienceUpdateView.as_view(),
@@ -66,7 +89,11 @@ urlpatterns = [
         RedactorDeleteView.as_view(),
         name="redactor-delete",
     ),
-    path('redactor-update-data/<int:pk>/', RedactorUpdateDataView.as_view(), name='redactor-update-data'),
+    path(
+        "redactor-update-data/<int:pk>/",
+        RedactorUpdateDataView.as_view(),
+        name="redactor-update-data",
+    ),
 ]
 
 app_name = "bureau"
