@@ -1,3 +1,10 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -7,18 +14,18 @@ nav {
 }
 
 #nav-center {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .nav-separator {
-  margin: 0 10px; /* Adjust the margin as needed for spacing */
-  color: #555;    /* Adjust the color as needed */
+    margin: 0 10px;
+    color: #555;
 }
 
 #nav a {
     text-decoration: none;
-    color: #333; /* цвет текста */
+    color: #333;
 }
 
 #nav div {
@@ -30,6 +37,17 @@ nav {
 }
 
 .gray-btn {
-  background-color: rgb(128, 128, 128);
-  color: white;
+    background-color: rgb(128, 128, 128);
+    color: white;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 5px;
+    margin-top: auto; /* Помещаем футер внизу, вне зависимости от контента */
 }

@@ -48,7 +48,7 @@ def index(request):
 class TopicListView(generic.ListView):
     model = Topic
     context_object_name = "topic_list"
-    paginate_by = 8
+    paginate_by = 5
 
 
 class TopicCreateView(LoginRequiredMixin, generic.CreateView):
