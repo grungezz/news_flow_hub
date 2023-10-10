@@ -13,7 +13,7 @@ from .forms import (
     RedactorUpdateDataForm,
     NewspaperSearchForm,
 )
-from .models import Redactor, Newspaper, Topic
+from bureau.models import Redactor, Newspaper, Topic
 
 
 def index(request):
@@ -47,7 +47,6 @@ def index(request):
 
 class TopicListView(generic.ListView):
     model = Topic
-    context_object_name = "topic_list"
     paginate_by = 5
 
 

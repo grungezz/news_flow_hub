@@ -1,13 +1,13 @@
 # News Flow Hub Django App
 
-Welcome to News Flow Hub(https://news-flow-hub.onrender.com/), a Django application that empowers users to explore a curated selection of news articles across various topics. The project incorporates three main models: Topic, Redactor, and Newspaper.
+Welcome to News Flow Hub (https://news-flow-hub.onrender.com/), a Django application that empowers users to explore a curated selection of news articles across various topics. The project incorporates three main models: Topic, Redactor, and Newspaper.
 
 ## Features:
-Topic Model: Represents diverse news categories, providing a broad spectrum of subjects for readers.
+🔹 Topic Model: Represents diverse news categories, providing a broad spectrum of subjects for readers.
 
-Redactor Model (Customized User Model): Extends the default user model to include specific information about redactors, empowering them to contribute articles with details such as years of experience.
+🔹 Redactor Model (Customized User Model): Extends the default user model to include specific information about redactors, empowering them to contribute articles with details such as years of experience.
 
-Newspaper Model: Forms the core content structure, including title, article content, publication date, associated topic, and contributing redactors. This model serves as the foundation for news articles available on the platform.
+🔹 Newspaper Model: Forms the core content structure, including title, article content, publication date, associated topic, and contributing redactors. This model serves as the foundation for news articles available on the platform.
 
 ## Requirements:
 Ensure you have the following dependencies installed:
@@ -22,8 +22,10 @@ django-crispy-forms==1.14.0
 ```
 ## Usage:
 Clone the repository.
-Create and apply migrations: python manage.py makemigrations and python manage.py migrate.
-Run the development server: python manage.py runserver.
+Run the development server: 
+```shell
+python manage.py runserver.
+```
 Visit the app in your browser.
 
 
