@@ -10,17 +10,23 @@
     {% endif %}
   </h1>
 
-  {% if topic_list %}
+  {% if user.is_authenticated %}
     <table class="table">
       <tr>
         <th>ID</th>
         <th>Name</th>
-        {% if user.is_authenticated %}
-          <th>Update</th>
-          <th>Delete</th>
-        {% endif %}
+        <th>Update</th>
+        <th>Delete</th>
       </tr>
+    {% else %}
+    <table class="table" style="margin: 0 auto;">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+      </tr>
+    {% endif %}
 
+    {% if topic_list %}
       {% for topic in topic_list %}
         <tr>
           <td>{{ topic.id }}</td>
