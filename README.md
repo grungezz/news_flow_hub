@@ -26,7 +26,15 @@ django-debug-toolbar==3.2.4
 django-crispy-forms==1.14.0
 ```
 ## Usage:
+
 Clone the repository.
+If you are using PyCharm - it may propose you to automatically create venv for your project and install requirements in it, but if not:
+```shell
+python -m venv venv
+venv\Scripts\activate (on Windows)
+source venv/bin/activate (on macOS)
+pip install -r requirements.txt
+```
 Run the development server: 
 ```shell
 python manage.py runserver.
