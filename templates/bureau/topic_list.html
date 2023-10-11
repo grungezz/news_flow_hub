@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Topic List
+    {% if user.is_authenticated %}
+      <a href="{% url 'bureau:topic-create' %}" class="btn btn-primary link-to-page">
+        Create
+      </a>
+    {% endif %}
+  </h1>
+
+  {% if user.is_authenticated %}
+    <table class="table">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+    {% else %}
+    <table class="table" style="margin: 0 auto;">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+      </tr>
+    {% endif %}
+
+    {% if topic_list %}
+      {% for topic in topic_list %}
+        <tr>
+          <td>{{ topic.id }}</td>
+          <td>{{ topic.name }}</td>
+          {% if user.is_authenticated %}
+            <td>
+              <a href="{% url 'bureau:topic-update' pk=topic.id %}">
+                Update
+              </a>
+            </td>
+            <td>
+              <a style="color: red" href="{% url 'bureau:topic-delete' pk=topic.id %}">
+                Delete
+              </a>
+            </td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>There are no topics in the service.</p>
+  {% endif %}
+{% endblock %}

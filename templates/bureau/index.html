@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="display-4">Welcome to News Flow Hub!</h1>
+        <p class="lead">Your Source for Quality News and Stories</p>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h2 class="mb-4">About Us</h2>
+                <p>We are dedicated to bringing you the latest and most reliable news from around the world. Our team of talented redactors works hard to ensure that you are well-informed and entertained.</p>
+                <p>At News Flow Hub, we invite accredited redactors to join our dynamic team. As a part of our community, redactors can contribute news articles that reach a wide audience. Readers enjoy the privilege of accessing the most important and interesting news stories before anyone else.</p>
+            </div>
+            <div class="col-md-4">
+                <h2 class="mb-4">Statistics</h2>
+                <ul class="list-unstyled">
+                    <li><strong>Newspapers:</strong> {{ num_newspapers }}</li>
+                    <li><strong>Redactors:</strong> {{ num_redactors }}</li>
+                    <li><strong>Topics:</strong> {{ num_topics }}</li>
+                </ul>
+                <p>Congratulation! You've invested {{ time_spent_minutes }} minute{{ time_spent_minutes|pluralize }} and {{ time_spent_seconds }} second{{ time_spent_seconds|pluralize }} exploring our news site. Your time is a testament to your commitment to staying informed and engaged!</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}
