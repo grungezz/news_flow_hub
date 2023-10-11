@@ -27,18 +27,41 @@ django-crispy-forms==1.14.0
 ```
 ## Usage:
 
-Clone the repository.
-If you are using PyCharm - it may propose you to automatically create venv for your project and install requirements in it, but if not:
+Clone the repository:
+```shell
+https://github.com/grungezz/news_flow_hub.git
+```
+
+Change your working directory to the project folder:
+```shell
+cd news_flow_hub
+```
+
+Create and activate a virtual environment (if not done automatically by your IDE):
 ```shell
 python -m venv venv
 venv\Scripts\activate (on Windows)
 source venv/bin/activate (on macOS)
+```
+Install the project's Python dependencies using pip with the requirements file:
+```shell
 pip install -r requirements.txt
 ```
-Run the development server: 
+Apply database migrations to set up the database:
 ```shell
-python manage.py runserver.
+python manage.py makemigrations
+python manage.py migrate
 ```
+Load initial data if needed (from "test_data.json" in this case):
+```shell
+python manage.py loaddata test_data.json
+```
+
+Start the development server:
+```shell
+python manage.py runserver
+```
+
 Visit the app in your browser.
 
 
