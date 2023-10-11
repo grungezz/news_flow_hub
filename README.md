@@ -50,7 +50,6 @@ pip install -r requirements.txt
 ```
 Apply database migrations to set up the database:
 ```shell
-python manage.py makemigrations
 python manage.py migrate
 ```
 Load initial data if needed (from "test_data.json" in this case):
